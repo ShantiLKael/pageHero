@@ -3,7 +3,7 @@ nav {
     background-color: black;
     padding: 10px 10px 20px 10px;
     border-radius: 10px;
-    margin : 10px;
+	margin : 10px;
 }
 
 nav ul {
@@ -67,7 +67,6 @@ iframe {
     width: 95% ;
     margin-left : 30px;
     margin-right : 20px;
-	margin-bottom : 100px;
 	margin-top : 50px;
 	
     display: block;
@@ -77,7 +76,19 @@ iframe {
 }
 
 body {
-    background-color: #333;
+	background-color: #444444;
+}
+
+#Home {
+    position:fixed;
+    right:0;
+    bottom:0;
+    margin:30px; 
+	width : 2%;
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+	padding : 20px;
+	border-radius : 30px;
+	background-color : white;
 }
 
 /* Tableau d'avatars */
