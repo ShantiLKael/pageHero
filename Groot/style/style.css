@@ -1,0 +1,158 @@
+/*Dégradé de couleur : #452E3A, #896F63, #A3906E, #D3BD81, #DEBC67*/
+
+body	{
+	background-color : white;
+	color :#452E3A;
+	padding-left: 5em;
+	padding-right: 5em
+}
+
+header	{
+	text-align : center;
+	top : 0px;
+	right : 0px;
+}
+
+nav	{
+	position : fixed;
+	left : 0px;
+	top : 250px;
+	width : 200px;
+}
+
+section, aside	{
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+footer, header, nav	{
+	color : #e9c994;
+	font-weight: bold;
+	font-family: sans-serif;
+	border : 2px solid black;
+	background:linear-gradient(to right,#105ac2,#3dc0f4);
+}
+
+footer > ul	{
+	display: inline-block;
+}
+
+footer > pre	{
+	display: inline-block;
+	margin-left: 10%;
+}
+
+h1	{
+	font-size: 2.2em;
+	font-family: verdana;
+	text-align: center;
+	margin-top: 1em;
+}
+
+h2	{
+	color:#D3BD81;
+	font-size: 1.6em;
+	font-family: verdana;
+	text-decoration: underline;
+	text-shadow: 1px 1px 2px #452E3A;
+	margin-top: 2em;
+}
+
+h3	{
+	color:#A3906E;
+	font-size: 1.4em;
+	font-family: verdana;
+	margin-top: 2em;
+	text-indent: 1em;
+	text-decoration: underline;
+}
+
+h4	{
+	color:#896F63;
+	font-size: 1em;
+	font-family: verdana;
+	font-variant: small-caps;
+}
+
+ol	{
+}
+
+.rouge{
+	background-color: red;
+	color: white;
+	font-family: impact;
+	padding: 5px;
+}
+.blanc{
+	text-decoration: overline underline;
+	color : white;
+	text-shadow: 1px 1px 5px #452E3A;
+}
+
+#index	{
+	color : #896F63;
+	font-size : 1.2em;
+	list-style-type : square;
+}
+
+#perso	{
+	list-style-type : circle;
+}
+
+#affiche	{
+	border-radius:10px;
+	height:200px;
+}
+
+figure > img	{
+	height:200px;
+}
+
+b, dt	{
+	color : #896F63;
+	font-weight : bold;
+}
+
+a:link	{
+	color : #e9c994;
+}
+
+a:visited	{
+	color: grey;
+}
+
+nav > ul > li > a:visited	{
+	color: white;
+}
+
+a:hover	{ /*lorsque le pointeur de la souris survole un lien*/
+	color: #452E3A;
+	font-style: italic;
+}
+
+.spoiler	{
+	background-color : black;
+	color : black;
+}
+.spoiler:hover	{
+	background-color : grey;
+	color : white;
+}
+
+spoiler-image	{
+	color : white;
+}
+
+spoiler-image:hover	{
+	color : red;
+}
+
+spoiler-spawn	{
+	color : white;
+	font-size : 2px;
+}
+
+spoiler-spawn:hover	{
+	color : black;
+	font-size : 20px;
+}

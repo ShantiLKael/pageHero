@@ -1,0 +1,95 @@
+/*
+body {
+    background-color:#DEDEDE;
+}
+*/
+
+header {
+    color: darkorange;
+    text-align: center;
+    border-width: 100%;
+    border-style: solid;
+    border-color: darkorange;
+}
+
+p{
+    color: #555555;
+}
+
+pre{
+    color: #555555;
+}
+
+
+h2{
+    color: #555555;
+
+}
+
+
+h3{
+    color: darkorange;
+
+}
+
+h4{
+    text-indent: 30px;
+    color: #555555;
+    font-style: italic;
+}
+
+h5{
+    color: darkorange;
+    font-size: 20px;
+}
+
+.image {
+    float: right;
+}
+
+
+aside {
+    width: 40%;
+    padding-left: .4rem;
+    margin-left: .4rem;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px orange;
+    font-style: italic;
+    color: goldenrod;
+}
+
+aside > p {
+    margin: .4rem;
+}
+
+p, h4 {
+    margin: 5px;
+}
+
+ a:link {  /* lien non visité*/
+    color: orange; /*bleu clair*/
+  }
+  a:visited {  /*lien visité*/
+    color: goldenrod;
+  } 
+  a:active {  /*lien actif */
+    color: red;
+  } 
+  a:hover { /*lorsque le pointeur de la souris survole un lien*/
+    font-style: italic;
+  }
+
+footer { 
+    border: 2px solid darkorange;
+    color:orange;
+}
+
+
+
+ul {
+	type: disc;
+}
+
+ol {
+	type: I;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta name="Author" content="Matéo SA">
+		<meta lang="fr" charset="utf-8">
+		<title>
+			Ebony Maw
+		</title>
+		<link rel="stylesheet" href="EbonyMaw.css">
+	</head>
+	
+	<body class="fond">
+	
+		<header> <h1> Ebony Maw </h1> </header>
+		
+		<aside class="border">
+			<img src="EbonyMaw.jpeg" alt="jpeg">
+			
+			<div>Vérification d'identité</div>
+			<button type="button" onclick="init()">Start</button>
+			<div id="webcam-container"></div>
+			<div id="label-container"></div>
+			<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+			<script type="text/javascript">
+				// More API functions here:
+				// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+				// the link to your model provided by Teachable Machine export panel
+				const URL = "https://teachablemachine.withgoogle.com/models/WkmtBrdWx/";
+
+				let model, webcam, labelContainer, maxPredictions;
+
+				// Load the image model and setup the webcam
+				async function init() {
+					const modelURL = URL + "model.json";
+					const metadataURL = URL + "metadata.json";
+
+					// load the model and metadata
+					// Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+					// or files from your local hard drive
+					// Note: the pose library adds "tmImage" object to your window (window.tmImage)
+					model = await tmImage.load(modelURL, metadataURL);
+					maxPredictions = model.getTotalClasses();
+
+					// Convenience function to setup a webcam
+					const flip = true; // whether to flip the webcam
+					webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+					await webcam.setup(); // request access to the webcam
+					await webcam.play();
+					window.requestAnimationFrame(loop);
+
+					// append elements to the DOM
+					document.getElementById("webcam-container").appendChild(webcam.canvas);
+					labelContainer = document.getElementById("label-container");
+					for (let i = 0; i < maxPredictions; i++) { // and class labels
+						labelContainer.appendChild(document.createElement("div"));
+					}
+				}
+
+				async function loop() {
+					webcam.update(); // update the webcam frame
+					await predict();
+					window.requestAnimationFrame(loop);
+				}
+
+				// run the webcam image through the image model
+				async function predict() {
+					// predict can take in an image, video or canvas html element
+					const prediction = await model.predict(webcam.canvas);
+					for (let i = 0; i < maxPredictions; i++) {
+						const classPrediction =
+							prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+						labelContainer.childNodes[i].innerHTML = classPrediction;
+					}
+				}
+			</script>
+			
+			<ul class="disc">
+				<li> Vrai nom :	Ebony Maw			</li>
+				<li> Surnom :	Voldemort 			</li>
+				<li> Sexe : Homme					</li>
+				<li>  Réalité :	Terre-199999		</li>
+				<li>  Décès :	31 mai 2018			</li>
+				<li>  Affiliation :	Ordre Noir		</li>
+				<li>  Statut :	Décédé				</li>
+				<li>  Acteur :	Tom Vaughan-Lawlor	</li>
+			</ul>
+		</aside>
+		
+		
+		
+		<nav class="border">
+			<h3> Sommaire </h3>
+			
+			<ol class="carre" >
+				<li> <a href="#presentation"> 	Présentation 	</a> </li>
+				<li> <a href="#pouvoirs"> 		Pouvoirs		</a> </li>
+				<li> <a href="#apparition"> 	Apparition		</a> </li>
+				<li> <a href="#famille"> 		Famille			</a> </li>
+				<li> <a href="#anecdote"> 		Anecdotes 		</a> </li>
+				<li> <a href="#bio"> 			Biographie		</a> </li>
+				<li>
+					<ul class="carre" >
+								<li> <a href="#ordre"> 		Ordre Noir			</a> </li>
+								<li> <a href="#geurre"> 	Guerre d'Infinité	</a> </li>
+					</ul>
+				</li>
+			</ol>
+		</nav>
+			
+			<br><br><br><br><br>
+			
+		<section class="color">
+			<h3 id="presentation"> 	Présentation	</h3>
+			
+					Ebony Maw était un membre de l'Ordre Noir et un fils adoptif de Thanos. Doté de pouvoirs de télékinésie, Maw était profondémment loyal à Thanos et donna des avertissements de son pouvoir à travers toute la galaxie tout en aidant dans la recherche des Pierres d'Infinités. Après avoir participé au massacre de la moitié des Asgardiens, Maw et Cull Obsidian reçurent pour ordre de localiser la Pierre du Temps, menant Maw à capturer Docteur Strange puis à le torturer pour obtenir la Pierre. Néanmoins, Maw fut vaincu quand Iron Man et Spider-Man vinrent au secours de Strange, amenant Maw à être aspiré dans le vide spatial, mourant sur le coup.
+		
+			
+			<h3 id="pouvoir"> 		Pouvoirs 		</h3>
+				
+					<ul class="chiffre" >
+						<li> Télékinésie	</li>
+						<li> Lévitation		</li>
+						<li> Magie 			</li>
+					</ul>
+				
+			<h3 id="apparition"> 	Apparition 		</h3>
+				
+					<ul class="chiffre" >
+						<li> Avengers : Infinity War (2018)	</li>
+					</ul>
+				
+	
+			<h3 id="famille"> 		Famille			</h3>
+				
+					<ul class="carre" >
+						<li> A'Lars – Grand-père adoptif		</li>
+						<li> Eros / Starfox – Oncle adoptif		</li>
+						<li> Thanos † – Père adoptif et maître	</li>
+						<li> Ordre Noir – Semblables adoptifs, rivaux et coéquipiers</li>
+						<li> Corvus Glaive † – Frère adoptif	</li>
+						<li> Proxima Midnight † – Sœur adoptive	</li>
+						<li> Cull Obsidian † – Frère adoptif	</li>
+						<li> Gamora † – Sœur adoptive et ennemie</li>
+						<li> Nebula – Sœur adoptive et ennemie	</li>
+					</ul>
+				
+	
+			<h3 id="anecdote"> 		Anecdotes 		</h3>
+				
+					<ul>
+						<li> Ebony Maw étant aspiré dans l'espace est une référence à la mort de la Reine Xenomorphe dans Aliens (suggéré par Spider-Man quand il trouva l'idée pour se débarasser d'Ebony Maw).	</li>
+						<li> Ebony Maw possède les pouvoirs de lévitation et de télékinésie de Supergiant, qui est aussi une membre de l'Ordre Noir dans les comics. 	</li>
+						<li> L'incarnation d'Ebony Maw dans Avengers : Infinity War était inspirée par celle de Mephisto comme bras-droit de Thanos dans l'histoire Infinity Gauntlet de Jim Starlin, qui fut adaptée dans Avengers : Infinity War et Avengers : Endgame.	</li>
+					</ul>
+				
+			
+			<h3 id="bio"> 	Biographie	</h3>
+				
+					<ul>
+						<li> <h3 id="ordre"> Ordre Noir </h3>		
+							Ebony Maw, comme le reste de l'Ordre Noir, est natif d'un monde détruit par Thanos dans sa quête d'anéantir la moitié de l'univers. Thanos prend Maw, orphelin, et l'élève comme son propre enfant, l'entraînant à être un membre mortel de l'Ordre Noir, mais contrairement à ses frères et sœurs, Maw se démarque en n'oubliant jamais Thanos pendant son temps dans l'Ordre.
+							Maw est présent sur Zen-Whoberi quand Thanos récupère Gamora, et qu'il ordonne aux Chitauri de décimer la moitié de la population de la planète.
+						</li>
+						<li> <h3 id="geurre">Guerre d'Infinité	</h3> 
+							<h4> Obtention du Tesseract </h4>
+							Avec le reste de l'Ordre Noir et Thanos, Ebony Maw embarque sur le navire Asgardien, le Statesman, à la recherche du Tesseract, qui contient la Pierre de l'Espace. Lorsque Hulk attaque Thanos, Maw empêche Cull Obsidian d'intervenir, lui demandant de laisser Thanos s'amuser. Quand Heimdall utilise la magie noire pour envoyer Hulk sur Terre, Thanos le poignarde et le tue, provoquant le cri de Thor. Maw pose son doigt sur ses lèvres, incitant Thor à rester silencieux en utilisant la télékinésie pour retenir et museler l'Asgardien. Maw s'incline ensuite humblement devant Thanos alors qu'il présente le Tesseract à son maître. Il songe que seul Thanos a le pouvoir et la noblesse nécessaires pour manier les Pierres d'Infinité alors que le Titan se débarrasse de son armure, puis prend le Tesseract de la main de Maw et l'écrase rapidement pour le dévoiler et ajouter la Pierre de l'Espace sur son Gantelet de l'Infini.
+							<h4> Attaque de Greenwich Village</h4>
+							Ebony Maw part ensuite sur Terre avec Cull Obsidian à la recherche de l'Oeil d'Agamotto, qui contient la Pierre du Temps. En arrivant sur Terre, Maw et Obsidian sont confrontés à Docteur Strange, Wong, Iron Man et Bruce Banner. Pendant qu'il annonce qu'il vient récupérer la Pierre, Tony Stark le coupe, ce qui l'agace fortement. Le combat commence rapidement, avec Iron Man et Banner luttant principalement contre Cull Obsidian tandis que le Docteur Strange et Wong combattent principalement  Maw. Ce dernier se bat avec peu d'effort jusqu'à ce que Strange et Wong réussissent à le blesser, et à ce moment-là, il devient agressif; il finit par frapper Strange. Spider-Man se joint à la mêlée, essayant d'empêcher Maw d'atteindre Docteur Strange, maintenant inconscient. Finalement, il parvient à enlever le Docteur Strange et à embarquer sur le vaisseau que Cull Obsidian et lui ont utilisé pour rejoindre la Terre.
+							<h4> Torture du Docteur Strange</h4>
+							Pendant que le vaisseau se dirige vers Titan où il doit rejoindre Thanos, Maw commence à torturer le Docteur Strange pour qu'il abandonne la Pierre du Temps. Maw explique à Strange que, s'il arrive sur Titan avec Strange toujours en possession de la pierre, il serait puni par Thanos. À l'insu de Maw, Iron Man et Spider-Man se sont faufilés à bord du vaisseau alors qu'il montait dans l'espace. Alors que Maw torture Strange, il entend Iron Man derrière lui. Il se retourne lui dit qu'il peut tuer Strange en un instant. Iron Man répond que "l'enfant a vu plus de films", à ce moment-là, il fait sauter un trou sur le côté du vaisseau, ce qui provoque un appel d'air qui envoie Maw dans le vide de l'espace, laissant son corps gelé dans l'infinité du cosmos.
+						</li>
+					</ul>
+		</section>
+		
+		<footer>
+			Sa Matéo B
+		</footer>
+		
+		
+		
+	</body>
+	
+	
+</html>
+
+

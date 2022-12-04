@@ -1,0 +1,41 @@
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background-color: #333;
+}
+
+nav li {
+float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+.autreMenu {
+    background-color: #ce721c;
+    float : right;
+}
+
+nav ul li:hover ul {
+    display:block;
+}
+
+nav ul li ul li {
+    margin:0px; padding:0px; float:none;
+} 
+
+nav ul li ul li a {
+    width:150px; display:block;
+} 

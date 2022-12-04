@@ -1,0 +1,154 @@
+/*
+Dégradé de couleur : #452E3A, #896F63, #A3906E, #D3BD81, #DEBC67
+*/
+/*
+bleu : #525DC6, rouge : #F24626
+*/
+
+h1{
+  text-align: center;
+  font-size: 2.2em;
+  color:#DEBC67;
+  font-family: verdana;
+  text-shadow: 2px 2px 2px #DEBC37;
+  margin-top: 1em;
+}
+
+header{
+    margin: 5px;
+	box-sizing: border-box; /*obtenir des tailles cohérantes*/
+	background-color: #6789DE;
+    padding: 30px;
+	border-radius: 20px;
+}
+
+img{
+  height: 8em;
+  float:left;
+  position: relative; /*avoir une bonne disposition*/
+  bottom: 15px; /*se palacer en dessous du header qui est fixe*/
+  border-radius: 20px;
+}
+
+nav{
+	background-color: #DEBC67;
+    padding: 10px;
+    position: relative; /*avoir une bonne disposition*/
+    width: 20%;
+    float: left;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px #DEBC37;
+}
+
+section {
+    position: relative; /*avoir une bonne disposition*/
+    top: 400px; /*se palacer en dessous du header qui est fixe*/
+	padding: 20px;
+}
+
+section2{
+    padding: 20px;
+    position: relative; /*avoir une bonne disposition*/
+    top: 20px; /*se palacer en dessous du header qui est fixe*/
+    width: 30%;
+    float:right;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px #452E3A;
+}
+
+*{
+  color:#452E3A;
+  font-family: arial;
+
+}
+
+body{
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.intro{
+  margin-top: 1em;
+  background-color: #DEBC67;
+  border-radius: 20px;
+  padding: 8px;
+  position: relative; /*avoir une bonne disposition*/
+  top: 100%; /*se palacer en dessous du header qui est fixe*/
+  width: 100%;
+}
+
+.intro *{
+  background-color:#DEBC67;
+}
+
+.abcdaire > * > ul{
+  font-family: monospace;
+  font-size: 1.1em;
+  border-radius: 20px;
+}
+
+.abcdaire > * > ul > li{
+  padding: 0.3em;
+  font-family: monospace;
+  font-size: 1.1em;
+  background-color: #DEBC67;
+  border-radius: 4px;
+}
+
+.abcdaire > .partie_html > ul{
+  background-color: #F24626;
+}
+
+.abcdaire > .partie_css > ul{
+  background-color: #525DC6;
+}
+
+
+h2{
+  font-size: 1.6em;
+  font-family: verdana;
+  text-decoration: underline;
+  margin-top: 2em;
+
+}
+
+h3{
+  font-size: 1.4em;
+  color:#A3906E;
+  font-family: verdana;
+  margin-top: 2em;
+  text-indent: 1em;
+  text-decoration: underline;
+}
+
+h4{
+  font-size: 1em;
+  color:#896F63;
+  font-family: verdana;
+  font-variant: small-caps;
+}
+
+ol > li{
+  color:black;
+  font-family: arial;
+}
+
+a{
+  color:#452EEF;
+}
+
+footer  {
+    background-color: #6789DE;
+    position: relative;
+	 border-radius: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    top:10%;
+}
+
+p{
+	 margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,179 @@
+<!-- interro Luc Lecarpentier intro web -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta  charset="UTF-8" lang="fr" />
+    <title>Howard Stark</title>
+    <link rel="stylesheet" href="styleHowardStark.css" media="all" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Titre" id="debut" > Howard Stark </h1>
+        
+        <section>
+            <div>Teachable Machine Image Model</div>
+            <button type="button" onclick="init()">Start</button>
+            <div id="webcam-container"></div>
+            <div id="label-container"></div>
+            <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+            <script type="text/javascript">
+                // More API functions here:
+                // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+                // the link to your model provided by Teachable Machine export panel
+                const URL = "https://teachablemachine.withgoogle.com/models/_ZXyZqLg1/";
+
+                let model, webcam, labelContainer, maxPredictions;
+
+                // Load the image model and setup the webcam
+                async function init() {
+                    const modelURL = URL + "model.json";
+                    const metadataURL = URL + "metadata.json";
+
+                    // load the model and metadata
+                    // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                    // or files from your local hard drive
+                    // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                    model = await tmImage.load(modelURL, metadataURL);
+                    maxPredictions = model.getTotalClasses();
+
+                    // Convenience function to setup a webcam
+                    const flip = true; // whether to flip the webcam
+                    webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+                    await webcam.setup(); // request access to the webcam
+                    await webcam.play();
+                    window.requestAnimationFrame(loop);
+
+                    // append elements to the DOM
+                    document.getElementById("webcam-container").appendChild(webcam.canvas);
+                    labelContainer = document.getElementById("label-container");
+                    for (let i = 0; i < maxPredictions; i++) { // and class labels
+                        labelContainer.appendChild(document.createElement("div"));
+                    }
+                }
+
+                async function loop() {
+                    webcam.update(); // update the webcam frame
+                    await predict();
+                    window.requestAnimationFrame(loop);
+                }
+
+                // run the webcam image through the image model
+                async function predict() {
+                    // predict can take in an image, video or canvas html element
+                    const prediction = await model.predict(webcam.canvas);
+                    for (let i = 0; i < maxPredictions; i++) {
+                        const classPrediction =
+                            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                        labelContainer.childNodes[i].innerHTML = classPrediction;
+                    }
+                }
+            </script>
+
+
+        </section>
+
+
+        <section>
+            <h3 class="SousTitre" > Quelques informations à propos de Howard Stark : </h3>
+            
+            <p>
+                Howard Anthony Walter Stark était un inventeur, scientifique, ingénieur, entrepreneur et réalisateur de films. 
+                Fondateur de Stark Industries, Stark travailla pour plusieurs projets gouvernementaux durant la Seconde Guerre mondiale, 
+                notamment le Projet Manhattan et le Projet Renaissance; ce dernier menant à l'utilisation du sérum de Super-Soldat pour créer Captain America. 
+                Fabriquant à Rogers en bouclier en vibranium, Stark l'aida lui, ainsi que l'Armée des États-Unis et la Section Scientifique de Réserve, 
+                dans le combat contre HYDRA. En recherchant Rogers qui avait disparu, Stark parvint tout de même à retrouver le Tesseract.  <br /><br />
+                Après la fin de la Seconde Guerre mondiale, Stark fut accusé de vendre des armes aux ennemis des États-Unis. Il demanda à son amie Peggy Carter 
+                de retrouver des preuves pour prouver son innocence. Finalement, son nom fut lavé quand il fut avéré que Johann Fennhoff avait piégé Stark 
+                pour tenter d'obtenir sa vengeance pour la Bataille de Finow. Stark fonda plus tard Stark Pictures tout en aidant Carter à effectuer des 
+                recherches pour comprendre la Matière Zéro. À la suite de la dissolution de la Section Scientifique de Réserve, Stark co-fonda le 
+                S.H.I.E.L.D. avec Carter et Chester Phillips pour être l'organisation qui lui succède.  <br /><br />
+                Plus tard, Stark se maria à une femme nommée Maria et eut un fils avec elle, Tony. Il co-développa la technologie du Réacteur ARC 
+                aux côtés d'Anton Vanko et collabora avec Hank Pym durant la Guerre Froide. Finalement, Stark mettait bien souvent son fils de côté mais 
+                tenait grandement à lui et possédait de grands espoirs dans le fait qu'il changerait le monde. Après être parvenu à recréer le sérum de Super-Soldat, 
+                Stark et sa femme furent ciblés par HYDRA et assassiné par le Soldat de l'Hiver.
+            </p>
+
+        </section>    
+                <hr class="hr"/>
+
+        <section class="sect2">
+                <figure> 
+                    <img src="howardstark1.jpeg" alt="Howard" title="Stark" /> 
+                    <img src="howardstark2.jpeg" alt="Howard" title="Stark" /> 
+                    <img src="howardstark3.jpeg" alt="Howard" title="Stark" /> 
+
+                    <figcaption style="border:solid 1px black; font-style:italic; background-color:#70ff78;text-align:center">Howard Stark</figcaption> 
+                </figure> 
+        </section>
+
+        <section class="sect3">
+            
+            <h3> Apparitions de Howard Stark à la télé : </h3>
+            
+            <dl>
+                <dt>Films : </dt>
+                    <dd> Iron Man 2 </dd> 
+                    <dd> Captain America : First Avenger </dd> 
+                    <dd> Ant-Man </dd> 
+                    <dd> Captain America : Civil War </dd> 
+                <dt>Series : </dt> 
+                    <dd> Agent Carter <sub> (5 épisodes) </sub> </dd> 
+                <dt>Mini-Films : </dt> 
+                    <dd> Agent Carter </dd> 
+            </dl> 
+
+                <hr width="50%"/>
+
+                <img src="starkhoward.png" alt="Howard Stark">
+
+        </section>
+        
+        <section class="sect4">
+
+            <h3> Quelques alliés de Howard Stark : </h3>
+
+            <ol>
+            <li class="Gras"> Joseph Manfredi – Ami d'enfance </li>
+            <li class="Gras">  Abner Brody – Professeur </li>
+            <li>  Stark Industries </li>
+                <ul>  
+                    <li> Edwin Jarvis † – Ami et majordome </li>
+                    <li> Obadiah Stane † – Ami et partenaire commercial </li>
+                    <li> Jason Wilkes – Employé </li>
+                </ul>
+            <li>  Forces armées des États-Unis </li>
+            <li>  Section Scientifique de Réserve </li>
+                <ul>  
+                    <li> Abraham Erskine † – Ami et ancien collègue </li>
+                    <li> Jack Thompson </li>
+                    <li> John Flynn </li>
+                </ul>
+            <li>  Commandos Hurlants </li>
+                <ul>  
+                    <li> Steve Rogers / Captain America – Ami </li>
+                    <li> Dum Dum Dugan – Ami </li>
+                    <li> Jim Morita † </li>
+                    <li> Gabe Jones </li>
+                    <li> James Montgomery Falsworth † </li>
+                    <li> Jacques Dernier </li>
+                </ul>
+            </ol>
+        </section>
+
+        <footer>
+            <pre>
+            **
+            ****
+            <a href="#debut">******</a>
+            ****
+            **
+            </pre>
+            
+
+            <a href="http://www.marvel-cineverse.fr/pages/mcu/encyclopedie/personnages/howard-stark.html" title="Howard Stark">
+                Si vous avez besoin de plus ample information sur Howard Stark n'hésitez pas a visité ce site</a>
+        </footer>
+    </body>
+  </html>
