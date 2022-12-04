@@ -1,2 +1,2 @@
 # pageHero
-Cest une page internet des Hero de Marvel ;D
+C'est une page internet des Hero de Marvel ;D
